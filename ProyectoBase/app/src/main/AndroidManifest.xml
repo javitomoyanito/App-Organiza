@@ -4,6 +4,9 @@
     <!-- PERMISO ACCESO A INTERNET -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- PERMISO ACCESO A ESTADO DE LA CONEXION A INTERNET -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -15,39 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoBase"
         tools:targetApi="31">
-        <activity
-            android:name=".AcInsertApiAlumnos"
-            android:exported="false" />
-        <activity
-            android:name=".SpinnerRegionComuna"
-            android:exported="false" />
-        <activity
-            android:name=".LeerSQLItee"
-            android:exported="false" />
-        <activity
-            android:name=".funciones.InsertarRegistroAPI"
-            android:exported="false" />
-        <activity
-            android:name=".LeerWebService"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity6"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity5"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity4"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity3"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
+
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
