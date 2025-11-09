@@ -34,7 +34,7 @@
         android:theme="@style/Theme.CameraApp" >
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.cameraapp.FileProvider"
+            android:authorities="com.example.cameraapp.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

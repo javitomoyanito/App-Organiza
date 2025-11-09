@@ -54,7 +54,7 @@
 35-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:18:9-26:20
 36            android:name="androidx.core.content.FileProvider"
 36-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:19:13-62
-37            android:authorities="com.example.cameraapp.FileProvider"
+37            android:authorities="com.example.cameraapp.fileprovider"
 37-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:20:13-69
 38            android:exported="false"
 38-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:21:13-37
