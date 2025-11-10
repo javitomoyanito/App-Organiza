@@ -2,163 +2,238 @@ package com.example.cameraapp
 
 import android.Manifest
 import android.app.Activity
-import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.cameraapp.databinding.ActivityMainBinding
+import androidx.lifecycle.lifecycleScope
+import com.google.ai.client.generativeai.GenerativeModel
+import com.google.ai.client.generativeai.type.content
+import com.google.ai.client.generativeai.type.generationConfig
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.FileOutputStream
-import java.io.OutputStream
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var photoFile: File
+// Vistas de la cámara
+private lateinit var ivPhoto: ImageView
+private lateinit var btnOpenCamera: Button
+private lateinit var photoUri: Uri
+private lateinit var photoFile: File
+private val CAMERA_PERMISSION_CODE = 100
+private val STORAGE_PERMISSION_CODE = 101
 
-    private val CAMERA_PERMISSION_CODE = 100
-    private val STORAGE_PERMISSION_CODE = 101
+// --- NUEVAS VISTAS PARA LA IA ---
+private lateinit var tvRespuesta: TextView
+private lateinit var progressBar: ProgressBar
 
-    private val takePictureResult = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
+// --- NUEVA VARIABLE PARA GEMINI ---
+private lateinit var generativeModel: GenerativeModel
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+
+    // Vistas de la cámara
+    ivPhoto = findViewById(R.id.iv_photo)
+    btnOpenCamera = findViewById(R.id.btn_open_camera)
+
+    // --- NUEVAS VISTAS (del activity_main.xml) ---
+    tvRespuesta = findViewById(R.id.tv_respuesta)
+    progressBar = findViewById(R.id.progressBar)
+
+    // --- INICIALIZA GEMINI ---
+    // ¿Por qué? Preparamos la conexión a la IA en cuanto
+    // la app se abre.
+    setupGenerativeModel()
+
+    btnOpenCamera.setOnClickListener {
+        checkCameraPermission()
+    }
+}
+
+// --- NUEVA FUNCIÓN ---
+private fun setupGenerativeModel() {
+    // ¿Por qué? Leemos la API key que definimos en build.gradle
+    // (BuildConfig se genera automáticamente)
+    val apiKey = BuildConfig.GEMINI_API_KEY
+
+    // ¿Por qué? Configuramos la IA.
+    // "gemini-1.5-flash" es el modelo más rápido, ideal para móviles.
+    // "temperature=0.7f" controla la creatividad (0.7 es un buen balance).
+    val config = generationConfig {
+        temperature = 0.7f
+    }
+
+    generativeModel = GenerativeModel(
+        modelName = "gemini-pro-vision",
+        apiKey = apiKey,
+        generationConfig = config
+    )
+}
+
+// --- MODIFICAMOS ESTA FUNCIÓN ---
+// ¿Por qué? Para llamar a la IA después de que la foto se toma.
+private val takePictureResult: ActivityResultLauncher<Intent> =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
-            // Mostrar la imagen en el ImageView
-            val bitmap = BitmapFactory.decodeFile(photoFile.absolutePath)
-            binding.imageView.setImageBitmap(bitmap)
+            // 1. Mostrar la foto
+            ivPhoto.setImageURI(photoUri)
 
-            // Guardar en galería
-            val saved = saveImageToGallery(bitmap)
-            if (saved) {
-                Toast.makeText(this, "Imagen guardada en la galería", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Error guardando la imagen", Toast.LENGTH_SHORT).show()
-            }
+            // 2. ¡NUEVO! Llamar a la IA para analizar la foto
+            analizarImagenConGemini(photoFile)
 
-            // Eliminar archivo temporal
-            photoFile.delete()
+        } else {
+            Toast.makeText(this, "Toma de foto cancelada", Toast.LENGTH_SHORT).show()
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+// --- NUEVA FUNCIÓN ---
+private fun analizarImagenConGemini(foto: File) {
 
-        binding.btnTakePhoto.setOnClickListener {
-            // Check camera permission
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
-                return@setOnClickListener
+    // ¿Por qué "lifecycleScope.launch"?
+    // Inicia una "Corrutina". Es la forma moderna de Android
+    // para hacer tareas de fondo (como llamadas a Internet)
+    // SIN congelar la app (evita el error NetworkOnMainThreadException).
+    lifecycleScope.launch(Dispatchers.IO) { // .IO es el hilo optimizado para red/disco
+
+        try {
+            // Preparamos la foto para la IA (Bitmap)
+            val bitmap = BitmapFactory.decodeFile(foto.absolutePath)
+
+            // Preparamos el "prompt" (la instrucción)
+            val promptTexto = "Eres un experto en organización de interiores. Analiza esta imagen de un espacio desordenado y dame una lista de 5 pasos accionables para ordenarlo, basándote en los objetos que ves."
+
+            // Creamos el contenido (texto + imagen)
+            val inputContent = content {
+                image(bitmap)
+                text(promptTexto)
             }
 
-            // For devices with Android < 29, check storage permission to save to gallery
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE)
-                    return@setOnClickListener
-                }
+            // --- Tareas de UI ---
+            // ¿Por qué "withContext(Dispatchers.Main)"?
+            // Para mostrar/ocultar vistas (ProgressBar, TextView),
+            // DEBEMOS volver al Hilo Principal (Main).
+            withContext(Dispatchers.Main) {
+                tvRespuesta.text = "Analizando tu espacio..."
+                progressBar.visibility = View.VISIBLE
+                tvRespuesta.visibility = View.GONE // Ocultamos el texto viejo
             }
 
+            // ¡Llamamos a la IA!
+            // Esta función "suspende" la corrutina (no la app)
+            // mientras espera la respuesta.
+            val response = generativeModel.generateContent(inputContent)
+
+            // --- Mostrar el resultado (de vuelta en el Hilo Principal) ---
+            withContext(Dispatchers.Main) {
+                tvRespuesta.text = response.text // Mostramos la respuesta de Gemini
+                progressBar.visibility = View.GONE
+                tvRespuesta.visibility = View.VISIBLE // Mostramos el texto nuevo
+            }
+
+        } catch (e: Exception) {
+            // Manejo de errores (si la API falla, no hay internet, etc.)
+            withContext(Dispatchers.Main) {
+                tvRespuesta.text = "Error: ${e.message}"
+                progressBar.visibility = View.GONE
+                tvRespuesta.visibility = View.VISIBLE
+            }
+        }
+    }
+}
+
+// --- TU CÓDIGO DE CÁMARA (Sin cambios) ---
+
+private fun checkCameraPermission() {
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+        != PackageManager.PERMISSION_GRANTED) {
+        // Permiso no aceptado, solicitarlo
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+    } else {
+        // Permiso ya aceptado
+        checkStoragePermission()
+    }
+}
+
+private fun checkStoragePermission() {
+    // El permiso de almacenamiento solo es necesario para Android 9 (API 28) o inferior
+    // para FileProvider, aunque nuestra lógica de guardado (externalCacheDir)
+    // no siempre lo requiere, es buena práctica tenerlo para compatibilidad.
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED) {
+            // Solicitar permiso de almacenamiento
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE)
+        } else {
+            // Permiso ya aceptado
             openCamera()
         }
+    } else {
+        // Para Android 10 (Q) o superior, no se necesita permiso de almacenamiento
+        // para guardar en el caché externo de la app.
+        openCamera()
     }
+}
 
-    private fun openCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-
+private fun openCamera() {
+    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+    try {
+        // Crear archivo temporal en cache externo
         photoFile = File.createTempFile("photo_", ".jpg", externalCacheDir)
 
-        val photoUri: Uri = FileProvider.getUriForFile(
-            applicationContext, // <-- CAMBIA 'this' POR 'applicationContext'
-            "${applicationContext.packageName}.fileprovider",
+        // ¿Por qué? Obtenemos la URI segura usando el FileProvider que
+        // ya configuramos.
+        photoUri = FileProvider.getUriForFile(
+            applicationContext, // Usamos applicationContext (más seguro)
+            "${applicationContext.packageName}.fileprovider", // Debe coincidir con el Manifest
             photoFile
         )
 
         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
-        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION or Intent.FLAG_GRANT_READ_URI_PERMISSION)
-
         takePictureResult.launch(intent)
+
+    } catch (e: IOException) {
+        e.printStackTrace()
+        Toast.makeText(this, "Error al crear el archivo de la foto", Toast.LENGTH_SHORT).show()
     }
+}
 
-    // Guarda un Bitmap en la galería usando MediaStore (API 29+) o método tradicional (API <29)
-    private fun saveImageToGallery(bitmap: Bitmap): Boolean {
-        return try {
-            val filename = "IMG_${SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())}.jpg"
-            var fos: OutputStream? = null
+override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                val resolver = contentResolver
-                val contentValues = ContentValues().apply {
-                    put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-                    put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
-                    put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/Camera")
-                }
-                val imageUri: Uri? = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-                fos = imageUri?.let { resolver.openOutputStream(it) }
-            } else {
-                // For older devices: write to Pictures directory and notify MediaStore
-                val imagesDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_PICTURES)
-                val image = File(imagesDir, filename)
-                fos = FileOutputStream(image)
-
-                // Notify gallery
-                val values = ContentValues()
-                values.put(MediaStore.Images.Media.DATA, image.absolutePath)
-                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
-                contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-            }
-
-            fos?.let { out ->
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
-            }
-            true
-        } catch (e: Exception) {
-            e.printStackTrace()
-            false
+    if (requestCode == CAMERA_PERMISSION_CODE) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // Permiso de cámara aceptado, chequear almacenamiento
+            checkStoragePermission()
+        } else {
+            Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
+        }
+    } else if (requestCode == STORAGE_PERMISSION_CODE) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // Permiso de almacenamiento aceptado
+            openCamera()
+        } else {
+            Toast.makeText(this, "Permiso de almacenamiento denegado", Toast.LENGTH_SHORT).show()
         }
     }
-
-    // Manejo de respuesta de permisos
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (requestCode == CAMERA_PERMISSION_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // If storage permission needed for older devices, request it now
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE)
-                        return
-                    }
-                }
-                openCamera()
-            } else {
-                Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
-            }
-        } else if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera()
-            } else {
-                Toast.makeText(this, "Permiso de almacenamiento denegado", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
+}
 }

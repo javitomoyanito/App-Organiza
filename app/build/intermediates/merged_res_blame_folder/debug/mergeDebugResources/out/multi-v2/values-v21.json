@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.cameraapp-mergeDebugResources-33:/values-v21/values-v21.xml",
+            "outputFile": "com.example.cameraapp-mergeDebugResources-37:/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\javit\\.gradle\\caches\\8.9\\transforms\\63173e579b80f9349c832100ff4ff597\\transformed\\core-1.13.1\\res\\values-v21\\values-v21.xml",

@@ -1,21 +1,9 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.2'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25'
-    }
+// Este archivo usa el método "moderno" de plugins
+// (Obedece al archivo settings.gradle)
+plugins {
+    // Usamos las versiones que tenías en tu 'buildscript'
+    id 'com.android.application' version '8.7.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.25' apply false
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-tasks.register('clean', Delete) {
-    delete rootProject.buildDir
-}
+// Borra la tarea 'clean', ya no es necesaria

@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cameraapp">
 
-    <!-- Permiso para acceder a la cámara -->
+
     <uses-permission android:name="android.permission.CAMERA" />
-    <!-- Permiso para escribir/leer almacenamiento si se guarda en dispositivos antiguos -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29" />
 

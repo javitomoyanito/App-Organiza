@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.cameraapp-mergeDebugResources-33:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.cameraapp-mergeDebugResources-37:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\javit\\.gradle\\caches\\8.9\\transforms\\51345abc7a44d42640fd4de21954a1a0\\transformed\\appcompat-1.7.0\\res\\values-night-v8\\values-night-v8.xml",

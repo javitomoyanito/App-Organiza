@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.cameraapp-mergeDebugResources-33:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.example.cameraapp-mergeDebugResources-37:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\javit\\.gradle\\caches\\8.9\\transforms\\fbdf22e9d543936b0bdf5e3c4ce720f5\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",

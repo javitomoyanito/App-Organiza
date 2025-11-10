@@ -5,8 +5,10 @@ color purple_700
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-id btnTakePhoto
-id imageView
+id btn_open_camera
+id iv_photo
+id progressBar
+id tv_respuesta
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round

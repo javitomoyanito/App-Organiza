@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.cameraapp.R;
@@ -18,24 +20,32 @@ import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnTakePhoto;
+  public final Button btnOpenCamera;
 
   @NonNull
-  public final ImageView imageView;
+  public final ImageView ivPhoto;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button btnTakePhoto,
-      @NonNull ImageView imageView) {
+  @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
+  public final TextView tvRespuesta;
+
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnOpenCamera,
+      @NonNull ImageView ivPhoto, @NonNull ProgressBar progressBar, @NonNull TextView tvRespuesta) {
     this.rootView = rootView;
-    this.btnTakePhoto = btnTakePhoto;
-    this.imageView = imageView;
+    this.btnOpenCamera = btnOpenCamera;
+    this.ivPhoto = ivPhoto;
+    this.progressBar = progressBar;
+    this.tvRespuesta = tvRespuesta;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -60,19 +70,32 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnTakePhoto;
-      Button btnTakePhoto = ViewBindings.findChildViewById(rootView, id);
-      if (btnTakePhoto == null) {
+      id = R.id.btn_open_camera;
+      Button btnOpenCamera = ViewBindings.findChildViewById(rootView, id);
+      if (btnOpenCamera == null) {
         break missingId;
       }
 
-      id = R.id.imageView;
-      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
-      if (imageView == null) {
+      id = R.id.iv_photo;
+      ImageView ivPhoto = ViewBindings.findChildViewById(rootView, id);
+      if (ivPhoto == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, btnTakePhoto, imageView);
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_respuesta;
+      TextView tvRespuesta = ViewBindings.findChildViewById(rootView, id);
+      if (tvRespuesta == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, btnOpenCamera, ivPhoto,
+          progressBar, tvRespuesta);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
