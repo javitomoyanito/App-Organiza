@@ -3053,10 +3053,12 @@ int drawable ic_launcher_foreground 0x7f0700a7
 int drawable ic_m3_chip_check 0x7f0700a8
 int drawable ic_m3_chip_checked_circle 0x7f0700a9
 int drawable ic_m3_chip_close 0x7f0700aa
+int drawable ic_mail 0x7f0700fc
 int drawable ic_mtrl_checked_circle 0x7f0700ab
 int drawable ic_mtrl_chip_checked_black 0x7f0700ac
 int drawable ic_mtrl_chip_checked_circle 0x7f0700ad
 int drawable ic_mtrl_chip_close_circle 0x7f0700ae
+int drawable ic_pass 0x7f0700fd
 int drawable ic_search_black_24 0x7f0700af
 int drawable indeterminate_static 0x7f0700b0
 int drawable m3_avd_hide_password 0x7f0700b1

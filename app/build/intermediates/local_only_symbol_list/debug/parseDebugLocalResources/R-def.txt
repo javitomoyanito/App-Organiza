@@ -5,6 +5,8 @@ color purple_700
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_mail
+drawable ic_pass
 id btn_open_camera
 id iv_photo
 id progressBar

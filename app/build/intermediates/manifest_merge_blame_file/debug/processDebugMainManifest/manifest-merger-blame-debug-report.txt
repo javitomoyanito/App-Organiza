@@ -6,20 +6,20 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-9        android:targetSdkVersion="34" />
+9        android:targetSdkVersion="35" />
 10
 11    <uses-permission android:name="android.permission.CAMERA" />
 11-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:5:5-65
 11-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:5:22-62
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:6:5-66
+12-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:6:5-67
 12-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:6:22-64
 13    <uses-permission
-13-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:7:5-8:38
+13-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:7:5-9:38
 14        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-14-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:7:22-78
+14-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:8:9-65
 15        android:maxSdkVersion="29" />
-15-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:8:9-35
+15-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:9:9-35
 16
 17    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 18    <!-- <uses-sdk android:minSdkVersion="21"/> -->
@@ -39,9 +39,9 @@
 25-->[androidx.core:core:1.13.1] C:\Users\javit\.gradle\caches\8.9\transforms\63173e579b80f9349c832100ff4ff597\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 26
 27    <application
-27-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:10:5-37:19
+27-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:11:5-41:19
 28        android:allowBackup="true"
-28-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:11:9-35
+28-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:12:9-35
 29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 29-->[androidx.core:core:1.13.1] C:\Users\javit\.gradle\caches\8.9\transforms\63173e579b80f9349c832100ff4ff597\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 30        android:debuggable="true"
@@ -49,166 +49,173 @@
 32        android:icon="@mipmap/ic_launcher"
 32-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:13:9-43
 33        android:label="CameraApp"
-33-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:12:9-34
+33-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:14:9-34
 34        android:roundIcon="@mipmap/ic_launcher_round"
-34-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:14:9-54
+34-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:15:9-54
 35        android:supportsRtl="true"
-35-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:15:9-35
+35-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:16:9-35
 36        android:testOnly="true"
 37        android:theme="@style/Theme.CameraApp" >
-37-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:16:9-47
-38        <provider
-38-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:18:9-26:20
-39            android:name="androidx.core.content.FileProvider"
-39-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:19:13-62
-40            android:authorities="com.example.cameraapp.fileprovider"
-40-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:20:13-69
-41            android:exported="false"
-41-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:21:13-37
-42            android:grantUriPermissions="true" >
-42-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:22:13-47
-43            <meta-data
-43-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:23:13-25:54
-44                android:name="android.support.FILE_PROVIDER_PATHS"
-44-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:24:17-67
-45                android:resource="@xml/file_paths" />
-45-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:25:17-51
-46        </provider>
-47
-48        <activity
-48-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:28:9-35:20
-49            android:name="com.example.cameraapp.MainActivity"
-49-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:29:13-62
-50            android:exported="true" >
-50-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:30:13-36
-51            <intent-filter>
-51-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:31:13-34:29
-52                <action android:name="android.intent.action.MAIN" />
-52-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:32:17-69
-52-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:32:25-66
-53
-54                <category android:name="android.intent.category.LAUNCHER" />
-54-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:33:17-77
-54-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:33:27-74
-55            </intent-filter>
-56        </activity>
+37-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:17:9-47
+38        <activity
+38-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:18:9-20:40
+39            android:name="com.example.cameraapp.PantallaPrincipal"
+39-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:19:13-46
+40            android:exported="false" />
+40-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:20:13-37
+41
+42        <provider
+42-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:22:9-30:20
+43            android:name="androidx.core.content.FileProvider"
+43-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:23:13-62
+44            android:authorities="com.example.cameraapp.fileprovider"
+44-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:24:13-69
+45            android:exported="false"
+45-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:25:13-37
+46            android:grantUriPermissions="true" >
+46-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:26:13-47
+47            <meta-data
+47-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:27:13-29:54
+48                android:name="android.support.FILE_PROVIDER_PATHS"
+48-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:28:17-67
+49                android:resource="@xml/file_paths" />
+49-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:29:17-51
+50        </provider>
+51
+52        <activity
+52-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:32:9-40:20
+53            android:name="com.example.cameraapp.MainActivity"
+53-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:33:13-41
+54            android:exported="true" >
+54-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:34:13-36
+55            <intent-filter>
+55-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:35:13-39:29
+56                <action android:name="android.intent.action.MAIN" />
+56-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:36:17-69
+56-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:36:25-66
 57
-58        <service
-58-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:26:9-32:19
-59            android:name="com.google.firebase.components.ComponentDiscoveryService"
-59-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:27:13-84
-60            android:directBootAware="true"
-60-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:32:13-43
-61            android:exported="false" >
-61-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:28:13-37
-62            <meta-data
-62-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:29:13-31:85
-63                android:name="com.google.firebase.components:com.google.firebase.vertexai.FirebaseVertexAIRegistrar"
-63-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:30:17-117
-64                android:value="com.google.firebase.components.ComponentRegistrar" />
-64-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:31:17-82
-65            <meta-data
-65-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
-66                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-66-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
-67                android:value="com.google.firebase.components.ComponentRegistrar" />
-67-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
-68        </service>
-69
-70        <provider
-70-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
-71            android:name="com.google.firebase.provider.FirebaseInitProvider"
-71-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:24:13-77
-72            android:authorities="com.example.cameraapp.firebaseinitprovider"
-72-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:25:13-72
-73            android:directBootAware="true"
-73-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:26:13-43
-74            android:exported="false"
-74-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:27:13-37
-75            android:initOrder="100" />
-75-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:28:13-36
-76
-77        <activity
-77-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-78            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-78-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
-79            android:exported="false"
-79-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-80            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-80-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-81
-82        <provider
-82-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-83            android:name="androidx.startup.InitializationProvider"
-83-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
-84            android:authorities="com.example.cameraapp.androidx-startup"
-84-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
-85            android:exported="false" >
-85-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
-86            <meta-data
-86-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-87                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-87-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
-88                android:value="androidx.startup" />
-88-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
-89            <meta-data
-89-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\javit\.gradle\caches\8.9\transforms\99b8e8371bc7599b520e45c0e7b76e25\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
-90                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-90-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\javit\.gradle\caches\8.9\transforms\99b8e8371bc7599b520e45c0e7b76e25\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
-91                android:value="androidx.startup" />
-91-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\javit\.gradle\caches\8.9\transforms\99b8e8371bc7599b520e45c0e7b76e25\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
-92            <meta-data
-92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-93                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-94                android:value="androidx.startup" />
-94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-95        </provider>
-96
-97        <receiver
-97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-98            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-99            android:directBootAware="false"
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-100            android:enabled="true"
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-101            android:exported="true"
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-102            android:permission="android.permission.DUMP" >
-102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-103            <intent-filter>
-103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-104                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-104-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-104-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-105            </intent-filter>
-106            <intent-filter>
-106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-107                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-108            </intent-filter>
-109            <intent-filter>
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-110                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-111            </intent-filter>
-112            <intent-filter>
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-113                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-114            </intent-filter>
-115        </receiver>
-116
-117        <meta-data
-117-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\cb530dedf52005b26805d3ee36e8311c\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
-118            android:name="com.google.android.gms.version"
-118-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\cb530dedf52005b26805d3ee36e8311c\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
-119            android:value="@integer/google_play_services_version" />
-119-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\cb530dedf52005b26805d3ee36e8311c\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
-120    </application>
-121
-122</manifest>
+58                <category android:name="android.intent.category.LAUNCHER" />
+58-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:38:17-77
+58-->C:\Users\javit\Desktop\CameraApp\app\src\main\AndroidManifest.xml:38:27-74
+59            </intent-filter>
+60        </activity>
+61
+62        <service
+62-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:26:9-32:19
+63            android:name="com.google.firebase.components.ComponentDiscoveryService"
+63-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:27:13-84
+64            android:directBootAware="true"
+64-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+65            android:exported="false" >
+65-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:28:13-37
+66            <meta-data
+66-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:29:13-31:85
+67                android:name="com.google.firebase.components:com.google.firebase.vertexai.FirebaseVertexAIRegistrar"
+67-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:30:17-117
+68                android:value="com.google.firebase.components.ComponentRegistrar" />
+68-->[com.google.firebase:firebase-vertexai:16.0.0-beta01] C:\Users\javit\.gradle\caches\8.9\transforms\9c9d0257f16bc49460d00c08ccc59726\transformed\jetified-firebase-vertexai-16.0.0-beta01\AndroidManifest.xml:31:17-82
+69            <meta-data
+69-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+70                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+70-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+71                android:value="com.google.firebase.components.ComponentRegistrar" />
+71-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+72        </service>
+73
+74        <provider
+74-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+75            android:name="com.google.firebase.provider.FirebaseInitProvider"
+75-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+76            android:authorities="com.example.cameraapp.firebaseinitprovider"
+76-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+77            android:directBootAware="true"
+77-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+78            android:exported="false"
+78-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+79            android:initOrder="100" />
+79-->[com.google.firebase:firebase-common:21.0.0] C:\Users\javit\.gradle\caches\8.9\transforms\66cf3cc5484192e83632dc07916645df\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+80
+81        <activity
+81-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+82            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+82-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+83            android:exported="false"
+83-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+84-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\javit\.gradle\caches\8.9\transforms\01c8f6709ecd5820af51b75a55095c32\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+85
+86        <provider
+86-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+87            android:name="androidx.startup.InitializationProvider"
+87-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+88            android:authorities="com.example.cameraapp.androidx-startup"
+88-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+89            android:exported="false" >
+89-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+90            <meta-data
+90-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+91                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+91-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+92                android:value="androidx.startup" />
+92-->[androidx.emoji2:emoji2:1.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\c6b9a4c77f5b63eb739428bf2527554b\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+93            <meta-data
+93-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\javit\.gradle\caches\8.9\transforms\99b8e8371bc7599b520e45c0e7b76e25\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
+94                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+94-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\javit\.gradle\caches\8.9\transforms\99b8e8371bc7599b520e45c0e7b76e25\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
+95                android:value="androidx.startup" />
+95-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\javit\.gradle\caches\8.9\transforms\99b8e8371bc7599b520e45c0e7b76e25\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
+96            <meta-data
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+97                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+98                android:value="androidx.startup" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+99        </provider>
+100
+101        <receiver
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+102            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+103            android:directBootAware="false"
+103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+104            android:enabled="true"
+104-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+105            android:exported="true"
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+106            android:permission="android.permission.DUMP" >
+106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+108                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+111                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+114                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+115            </intent-filter>
+116            <intent-filter>
+116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+117                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\javit\.gradle\caches\8.9\transforms\8796cdc83569848eb7e271ec6f5831f4\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+118            </intent-filter>
+119        </receiver>
+120
+121        <meta-data
+121-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\cb530dedf52005b26805d3ee36e8311c\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+122            android:name="com.google.android.gms.version"
+122-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\cb530dedf52005b26805d3ee36e8311c\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+123            android:value="@integer/google_play_services_version" />
+123-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\javit\.gradle\caches\8.9\transforms\cb530dedf52005b26805d3ee36e8311c\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+124    </application>
+125
+126</manifest>
