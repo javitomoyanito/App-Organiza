@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
@@ -72,6 +73,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 // --- NUEVA FUNCIÓN ---
 private fun setupGenerativeModel() {
+    // se utiliza el modelo "gemini-1.5-flash" (no gemini-1.5-flash-latest)
+    // y configuracion minima. El SDK oficial usa la API v1 automaticamente.
+
     // ¿Por qué? Leemos la API key que definimos en build.gradle
     // (BuildConfig se genera automáticamente)
     val apiKey = BuildConfig.GEMINI_API_KEY
@@ -83,6 +87,8 @@ private fun setupGenerativeModel() {
         temperature = 0.7f
     }
 
+    // "gemini-1.5-flash" es el nombre oficial del modelo.
+    // No usar "-latest" ni "v1beta" — el SDK maneja la versión correcta.
     generativeModel = GenerativeModel(
         modelName = "gemini-1.5-flash",
         apiKey = apiKey,
@@ -117,10 +123,16 @@ private fun analizarImagenConGemini(foto: File) {
 
         try {
             // Preparamos la foto para la IA (Bitmap)
+            // con validacion incluida
             val bitmap = BitmapFactory.decodeFile(foto.absolutePath)
+                ?: throw IOException("No se pudo cargar la imagen")
 
             // Preparamos el "prompt" (la instrucción)
-            val promptTexto = "Eres un experto en organización de interiores. Analiza esta imagen de un espacio desordenado y dame una lista de 5 pasos accionables para ordenarlo, basándote en los objetos que ves."
+            val promptTexto = """
+            Eres un experto en organización de interiores.
+            Analiza esta imagen de un espacio desordenado y dame una lista de 5
+            pasos accionables para ordenarlo, basándote en los objetos que ves.
+            """.trimMargin()
 
             // Creamos el contenido (texto + imagen)
             val inputContent = content {
@@ -145,7 +157,7 @@ private fun analizarImagenConGemini(foto: File) {
 
             // --- Mostrar el resultado (de vuelta en el Hilo Principal) ---
             withContext(Dispatchers.Main) {
-                tvRespuesta.text = response.text // Mostramos la respuesta de Gemini
+                tvRespuesta.text = response.text ?:"No se recibio respuesta de la IA" // Mostramos la respuesta de Gemini
                 progressBar.visibility = View.GONE
                 tvRespuesta.visibility = View.VISIBLE // Mostramos el texto nuevo
             }

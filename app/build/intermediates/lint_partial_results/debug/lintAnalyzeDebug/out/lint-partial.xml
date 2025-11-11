@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.example.cameraapp.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.color.purple_500"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="2"
+            column="12"
+            startOffset="24"
+            endLine="2"
+            endColumn="29"
+            endOffset="41"/>
+        <location id="R.color.purple_700"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="3"
+            column="12"
+            startOffset="70"
+            endLine="3"
+            endColumn="29"
+            endOffset="87"/>
+        <location id="R.color.white"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="4"
+            column="12"
+            startOffset="116"
+            endLine="4"
+            endColumn="24"
+            endOffset="128"/>
+        <location id="R.drawable.ic_mail"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_mail.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="5"
+            endColumn="10"
+            endOffset="1053"/>
+        <location id="R.drawable.ic_pass"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_pass.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="5"
+            endColumn="10"
+            endOffset="869"/>
+        <location id="R.string.app_name"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="2"
+            column="13"
+            startOffset="25"
+            endLine="2"
+            endColumn="28"
+            endOffset="40"/>
+        <location id="R.string.open_camera"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="3"
+            column="13"
+            startOffset="73"
+            endLine="3"
+            endColumn="31"
+            endOffset="91"/>
+        <entry
+            name="model"
+            string="color[purple_500(D),purple_700(D),white(D)],drawable[ic_launcher_background(U),ic_launcher_foreground(U),ic_launcher_foreground_1(R),ic_mail(D),ic_pass(D)],id[iv_photo(U),btn_open_camera(U),tv_respuesta(U),progressBar(U)],layout[activity_main(U)],mipmap[ic_launcher(U),ic_launcher_round(U)],string[app_name(D),open_camera(D)],style[Theme_CameraApp(U),Theme_Material3_DayNight_NoActionBar(R)],xml[file_paths(U)],sample[avatars(R)];4^5,c^14^8^9,d^3^4,e^3^4,11^12;;;"/>
+    </map>
+
+</incidents>

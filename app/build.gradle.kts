@@ -26,14 +26,13 @@ android {
         multiDexEnabled = true // <-- Signo =
 
         // Sintaxis de función con paréntesis
-        buildConfigField("String", "GEMINI_API_KEY", "\"${properties.getProperty("GEMINI_API_KEY")}\"")
-    }
+        buildConfigField("String", "GEMINI_API_KEY", "\"${properties.getProperty("GEMINI_API_KEY", "")}\"")    }
 
     buildTypes {
         // Para configurar un tipo existente como 'release', usamos getByName
-        getByName("release") {
+        release {
             isMinifyEnabled = false // <-- 'is' prefijo y signo =
-            buildConfigField("String", "GEMINI_API_KEY", "\"${properties.getProperty("GEMINI_API_KEY")}\"")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),"proguard-rules.pro")
         }
     }
 
@@ -59,6 +58,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.activity:activity-ktx:1.9.0")
     implementation("com.google.firebase:firebase-vertexai:16.0.0-beta01")
+    // version de gemini
     implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.3")

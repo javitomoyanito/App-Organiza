@@ -1,14 +1,6 @@
 [
     {
-        "merged": "C:\\Users\\javit\\.gradle\\daemon\\8.9\\com.example.cameraapp-mergeDebugResources-38:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\javit\\.gradle\\daemon\\8.9\\com.example.cameraapp-main-41:\\layout\\activity_main.xml"
-    },
-    {
         "merged": "com.example.cameraapp-mergeDebugResources-38:/layout/activity_main.xml",
         "source": "com.example.cameraapp-main-41:/layout/activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\javit\\.gradle\\daemon\\8.9\\com.example.cameraapp-mergeDebugResources-38:\\layout\\activity_pantalla_principal.xml",
-        "source": "C:\\Users\\javit\\.gradle\\daemon\\8.9\\com.example.cameraapp-main-41:\\layout\\activity_pantalla_principal.xml"
     }
 ]
