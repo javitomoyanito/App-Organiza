@@ -38,7 +38,7 @@ class Login : AppCompatActivity() {
 
             val emailGuardado = sharedpreferences.getString("Email", null)
             val passwordGuardado = sharedpreferences.getString("Contraseña", null)
-            
+
             if(emailIngresado.isEmpty() || passwordIngresado.isEmpty()){
                 Toast.makeText(this,"Por favor ingrese correo y contraseña", Toast.LENGTH_SHORT).show()
 
