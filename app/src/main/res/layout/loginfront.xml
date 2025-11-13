@@ -93,10 +93,27 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="Iniciar Sesión"
-                app:cornerRadius="30dp" />
+                app:cornerRadius="30dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_google_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cornerRadius="16dp"
+                android:text="Iniciar sesión con Google"
+                android:textColor="@android:color/black"
+                app:backgroundTint="@android:color/white"
+                app:icon="@drawable/ic_google"
+                app:iconGravity="textStart"
+                app:iconPadding="16dp"
+                app:iconTint="@null"
+                app:strokeColor="#AAAAAA"
+                app:strokeWidth="1dp"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
