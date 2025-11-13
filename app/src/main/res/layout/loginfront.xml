@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="#0000"
     android:id="@+id/main"
     >
 
     <com.google.android.material.card.MaterialCardView
+        app:cardBackgroundColor="@color/black"
         android:id="@+id/card_login"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -25,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="24dp"
+            >
 
             <ImageView
                 android:id="@+id/iv_logo"
@@ -86,15 +88,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginBottom="24dp"
+                android:textColor="@color/white"
                 android:text="¿Olvidaste tu contraseña?"
                 android:textAllCaps="false"
                 android:textSize="12sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_login"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/azulitogod"
                 android:text="Iniciar Sesión"
                 app:cornerRadius="30dp"
                 />
@@ -158,11 +163,32 @@
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:text="Regístrate"
-                    android:textStyle="bold" />
+                    android:textSize="12sp" />
+
+
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:text="VERSION ACTUAL ORGANIZAPP "
+                android:layout_marginTop="150dp"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:text="v0.1.0-alpha"
+                android:textSize="12sp"
+                />
 
         </LinearLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 

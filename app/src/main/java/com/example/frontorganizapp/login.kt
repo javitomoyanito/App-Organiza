@@ -29,12 +29,19 @@ class Login : AppCompatActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)!!
                 val idToken = account.idToken
-
                 Log.d("GoogleSignIn", "¡Éxito! El ID Token es: $idToken")
-
                 // TODO: Enviar este 'idToken' a tu backend (servidor)
-                Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
+
+                val nombreUsuario=account.displayName
+                val correoUsuario=account.email
+                val urlFoto=account.photoUrl.toString()
+                val intent = Intent(this, inicio::class.java)
+
+                intent.putExtra("USER_NAME",nombreUsuario)
+                intent.putExtra("USER_EMAIL",correoUsuario)
+                intent.putExtra("USER_PHOTO",urlFoto)
+
+                Toast.makeText(this, "¡Bienvenido $nombreUsuario!", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
                 finish()
 
@@ -91,7 +98,7 @@ class Login : AppCompatActivity() {
             } else if (emailIngresado == emailGuardado && passwordIngresado == passwordGuardado) {
                 Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, inicio::class.java)
                 startActivity(intent)
                 finish()
 
