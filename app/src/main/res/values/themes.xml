@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.FrontOrganizApp" parent="Theme.Material3.DayNight.NoActionBar"></style>
+
+    <style name="Theme.FrontOrganizApp" parent="Base.Theme.FrontOrganizApp" />
+</resources>
